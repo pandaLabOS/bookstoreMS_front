@@ -17,7 +17,7 @@ Both of them are linked to a GitHub Project: [Bookstore Management System: WAD P
     3. Ornwara Sangthongnirundorn (6215112)
 
 ### Project Description
-    A bookstore management system including a database of store books, authors, and customers with functionality to view records, insert new data, modify and update existing records, and delete records.
+A bookstore management system including a database of store books, authors, and customers with functionality to view records, insert new data, modify and update existing records, and delete records.
 
 ### Tech Stack
 [NextJS and React](https://nextjs.org/docs/api-reference/create-next-app)      
