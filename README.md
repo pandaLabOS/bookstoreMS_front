@@ -5,6 +5,12 @@ Bookstore Management System
 =====
 *This project is developed to be submitted as the second term project of Assumption University's "CSX 4107 Web Application Development" course.*
 
+### Project structure
+This project contains two GitHub Repositories:     
+[bookstorems_front](https://github.com/pandaLabOS/bookstoreMS_front.git)     
+[bookstorems_back](https://github.com/pandaLabOS/bookstoreMS_back.git)     
+Both of them are linked to a GitHub Project: [Bookstore Management System: WAD Project 2](https://github.com/users/pandaLabOS/projects/2)
+
 ### Our Team Members   
     1. Pakin Charoenchanachai (6210195)
     2. Kittiphop Jitlerdwilai (6216916)
