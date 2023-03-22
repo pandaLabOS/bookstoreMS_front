@@ -5,7 +5,7 @@
 Bookstore Management System
 =====
 *This project is developed to be submitted as the second term project of Assumption University's "CSX 4107 Web Application Development" course.*
-
+d
 ## Project structure
 This project contains two GitHub Repositories:     
 [bookstorems_front](https://github.com/pandaLabOS/bookstoreMS_front.git)     
