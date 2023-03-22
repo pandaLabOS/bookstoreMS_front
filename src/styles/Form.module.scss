@@ -1,0 +1,30 @@
+Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+Label {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+Input {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  width: 20rem;
+}
+
+Button {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+Button:hover{
+    background-color: #555;
+}
