@@ -15,6 +15,5 @@ export default function Book( {book} ) {
 export async function getServerSideProps({ params }) {
     const res = await fetch(`${process.env.API_URL}books/${params.id}`)
     const book = await res.json()
-    console.log(`FETCH URL: https://bookstore-ms-back.vercel.app/api/books/${params.id}`)
     return { props: { book } }
 }
