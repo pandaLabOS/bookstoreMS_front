@@ -40,7 +40,8 @@ export default function AddBook() {
 
                         <label htmlFor = "isbn">ISBN</label><br/>
                         <input id = "isbn" {...register("isbn")} placeholder = "ISBN" class="form-control" required/>
-                    
+                        <div id="isbnHelp" class="form-text">ISBN-10 or ISBN-13</div>
+
                         <label htmlFor="year">Year of Publication</label><br />
                         <input id="year" {...register("year")} placeholder="Year of Publication" class="form-control"/>
                         <div id="phoneHelp" class="form-text">e.g. 2015</div>
