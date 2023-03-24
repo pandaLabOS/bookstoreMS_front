@@ -7,6 +7,8 @@ export default function App({ Component, pageProps }) {
     <>
       <header>
         <NavBar/>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Chivo"/>
       </header>
       <Component {...pageProps} />
       
