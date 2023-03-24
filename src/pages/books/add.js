@@ -4,10 +4,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 export default function AddBook() {
-    const API_URL = process.env.API_URL;
+    const API_URL = "https://bookstore-ms-front.vercel.app/api";
     const {register, handleSubmit, watch, formState: { errors } } = useForm(); //handleSubmit is a tool provided by the react-hook-form hook
     const [data, setData] = useState("");
-    console.log(`API_URL: ${API_URL}`)
+    console.log(`API_URL in ADD: ${API_URL}/books`)
 
     const saveBook = async (data) => {
         const response = await fetch(`/api/books`, {
