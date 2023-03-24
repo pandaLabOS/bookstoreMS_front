@@ -1,20 +1,26 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
 
   --black: #222222;
+  --white: #FFFFFF;
+  --beige: #EAE7DC;
+  --sand: #D8C3A5;
+  --grey: #8E8D8A;
+  --peach: #E98074;
+  --vermillion: #E85A4F;
+  --green: #56b183;
+
+  --primary: var(--beige);
+  --secondary: var(--sand);
+  --accent: var(--vermillion);
+
+  --navbar-background: var(--white);
+  --navbar-text: var(--accent);
+
+  --subtitle-text: var(--grey);
+  --body-text: var(--black);
+  --price: var(--accent);
 }
 
 * {
@@ -27,11 +33,16 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background: var(--primary) !important;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  font: Chivo;
+}
+
+main {
+  padding: 3rem 3rem;
+  width: 80%;
 }
 
 a {
@@ -100,7 +111,77 @@ Button:hover{
     background-color: #555;
 }
 
+Button.btn-form-back {
+  width: 10rem;
+  height: 3rem;
+  background-color: var(--green);
+  border-radius: 10px;
+  border: var(--green) 1px solid;
+  color: var(--white);
+}
+
+Table {
+  width: 80vw !important;
+}
+
 p + a {
   font-family: 'HK Grotesk', 'Helvetica' !important;
   color: var(--black);
+}
+
+.btn {
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 250;
+  font-style: italic;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: var(--accent);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: var(--accent);
+}
+
+subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--subtitle-text);
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 100;
+  color: var(--body-text)
+}
+
+price {
+  font-size: 1rem;
+  font-weight: 250;
+  color: var(--price)
+}
+
+input {
+  width: 10rem;
+  height: 3rem;
+}
+
+label {
+  color: var(--accent);
+}
+
+.submit {
+  background-color: var(--green);
+  border-radius: 10px;
+  border: var(--green) 1px solid;
+  color: var(--white);
 }
