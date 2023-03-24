@@ -9,6 +9,7 @@
   --grey: #8E8D8A;
   --peach: #E98074;
   --vermillion: #E85A4F;
+  --green: #56b183;
 
   --primary: var(--beige);
   --secondary: var(--sand);
@@ -110,6 +111,19 @@ Button:hover{
     background-color: #555;
 }
 
+Button.btn-form-back {
+  width: 10rem;
+  height: 3rem;
+  background-color: var(--green);
+  border-radius: 10px;
+  border: var(--green) 1px solid;
+  color: var(--white);
+}
+
+Table {
+  width: 80vw !important;
+}
+
 p + a {
   font-family: 'HK Grotesk', 'Helvetica' !important;
   color: var(--black);
@@ -123,13 +137,19 @@ h1 {
   font-size: 2rem;
   font-weight: 250;
   font-style: italic;
-  color: var(--navbar-text);
+  color: var(--accent);
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: 100;
-  color: var(--navbar-text);
+  color: var(--accent);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: var(--accent);
 }
 
 subtitle {
@@ -148,4 +168,20 @@ price {
   font-size: 1rem;
   font-weight: 250;
   color: var(--price)
+}
+
+input {
+  width: 10rem;
+  height: 3rem;
+}
+
+label {
+  color: var(--accent);
+}
+
+.submit {
+  background-color: var(--green);
+  border-radius: 10px;
+  border: var(--green) 1px solid;
+  color: var(--white);
 }

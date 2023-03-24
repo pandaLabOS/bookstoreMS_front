@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function AddSupplier() {
+export default function AddBook() {
+    const API_URL = process.env.API_URL;
     const {register, handleSubmit, watch, formState: { errors } } = useForm(); //handleSubmit is a tool provided by the react-hook-form hook
     const [data, setData] = useState("");
-    console.log(`API_URL: ${process.env.API_URL}`)
+    console.log(`API_URL: ${API_URL}`)
 
     const saveBook = async (data) => {
-        const response = await fetch(`${process.env.API_URL}books`, {
+        const response = await fetch(`http://localhost:3000/api/books`, {
             method: "POST",
             mode: "cors",
             cache: "no-cache",
@@ -26,45 +27,47 @@ export default function AddSupplier() {
     }
 
     return (
-        <div style = {{backgroundColor: "var(--light-grey)", display: "flex", justifyContent: "center", alignContent: "center", padding: "3rem", width: "100vw"}}>
+        <div>
             <Head>
-                <title>Add New Supplier</title>
+                <title>Add New Book</title>
             </Head>
-            <form onSubmit = {handleSubmit(saveBook)} style = {{padding: "1rem", width: "30rem"}}>
-                <h3>Add New Supplier</h3>
-                <hr className="solid"/><br/>
-                <div class="form-group">
-                    <h3>Book Information</h3>
-                    <label htmlFor = "bookTitle">Book Title</label><br/>
-                    <input class = "form-control text-input" id = "bookTitle" name = "bookTitle" {...register('bookTitle', {required: 'This field is required'})} placeholder = "Book Title" required/><br/>
+            <form onSubmit = {handleSubmit(saveBook)}>
+                <h1>Add New Book</h1>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
+                    <div class="form-group">
+                        <label htmlFor = "title">Book Title</label><br/>
+                        <input class = "form-control text-input" id = "title" name = "title" {...register('title', {required: 'This field is required'})} placeholder = "Book Title" required/>
 
-                    <label htmlFor = "isbn">ISBN</label><br/>
-                    <input id = "isbn" {...register("isbn")} placeholder = "ISBN" class="form-control" required/><br/>
+                        <label htmlFor = "isbn">ISBN</label><br/>
+                        <input id = "isbn" {...register("isbn")} placeholder = "ISBN" class="form-control" required/>
+                    
+                        <label htmlFor="year">Year of Publication</label><br />
+                        <input id="year" {...register("year")} placeholder="Year of Publication" class="form-control"/>
+                        <div id="phoneHelp" class="form-text">e.g. 2015</div>
+                    </div>
+
+                    <div class = "form-group">
+                        
+                        <label htmlFor="author">Author</label><br />
+                        <input id="author" {...register("author")} placeholder="Name of Author" class="form-control"/>
+
+                        <label htmlFor="price">Price</label><br />
+                        <input type = "number" id="price" {...register("price")} placeholder="Price" class="form-control" min = "0"/>
+                        
+                        <br/>
+                        <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
+                            <input type="submit" className = "submit" value = "Save"/>
+                            <Link href = "/books" style = {{textDecoration: "none", color: "var(--blue)"}}>
+                                <button className = "btn btn-form-back">Back</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
 
                 <br/>
-
-                <div class = "form-group">
-                    <label htmlFor="year">Year of Publication</label><br />
-                    <input id="year" {...register("year")} placeholder="Year of Publication" class="form-control"/>
-                    <div id="phoneHelp" class="form-text">e.g. 2015</div><br/>
-
-                    <label htmlFor="author">Author</label><br />
-                    <input id="author" {...register("author")} placeholder="Name of Author" class="form-control"/>
-
-                    <label htmlFor="price">Price</label><br />
-                    <input id="price" {...register("price")} placeholder="Price" class="form-control"/>
-                </div>
-
-                <div class = "form-group hGroup">
-                    <Link href = "/supplier" style = {{textDecoration: "none", color: "var(--blue)"}}>
-                        <p>Back</p>
-                    </Link>
-                    <br/><br/>
-                    <input type="submit" class = "submit" value = "Save"/>
-                </div>
                 
             </form>
+            
             
         </div>
     )
