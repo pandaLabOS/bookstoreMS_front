@@ -11,10 +11,29 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
-        req.body._id = req.body.isbn + req.body.year;
-        const newDoc = await Book.create(req.body);
-        console.log(`newDoc: ${newDoc}`)
-        res.status(200).json(newDoc);
+        let isbnLength = req.body.isbn.length;
+        console.log(`ISBN length ${isbnLength}`);
+
+        if (isbnLength == 10) {
+            console.log("Valid! ISBN length is 10");
+            req.body._id = String("00" + req.body.isbn);
+            const newDoc = await Book.create(req.body);
+            console.log(`newDoc: ${newDoc}`)
+            res.status(200).json(newDoc);
+        } 
+        
+        else if (isbnLength == 13) {
+            console.log("Valid! ISBN length is 13");
+            req.body._id = String("00000000000" + req.body.isbn);
+            const newDoc = await Book.create(req.body);
+            console.log(`newDoc: ${newDoc}`)
+            res.status(200).json(newDoc);
+        }
+
+        else {
+            res.setHeader('Allow', ['GET', 'POST'])
+            res.status(405).end(`Method ${req.method} Not Allowed`)
+        }
     } 
     
     else {
