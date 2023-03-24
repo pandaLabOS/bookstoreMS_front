@@ -13,7 +13,7 @@ export default function UpdateBook({ returnProps }) {
 
     const saveBook = async (data) => {
         console.log(`${API_URL}/books/${book.isbn}`);
-        const response = await fetch(`${API_URL}/books/${book.isbn}`, {
+        const response = await fetch(`/api/books/${book.isbn}`, {
             method: "PUT",
             mode: "cors",
             cache: "no-cache",

@@ -10,7 +10,7 @@ export default function AddBook() {
     console.log(`API_URL: ${API_URL}`)
 
     const saveBook = async (data) => {
-        const response = await fetch(`${API_URL}/books`, {
+        const response = await fetch(`/api/books`, {
             method: "POST",
             mode: "cors",
             cache: "no-cache",
