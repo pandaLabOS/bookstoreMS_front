@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Head from 'next/head'
 import Link from 'next/link'
@@ -10,19 +10,6 @@ export default function UpdateBook({ returnProps }) {
     const {register, handleSubmit, watch, formState: { errors } } = useForm(); //handleSubmit is a tool provided by the react-hook-form hook
     const [data, setData] = useState("");
     console.log(`API_URL: ${API_URL}`)
-
-    function pullJson() {
-        fetch(API_URL + "/books/" + book.isbn)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
-        // return
-    }
-
-    useEffect(() => {
-        pullJson()
-    }, [])
 
     const saveBook = async (data) => {
         console.log(`${API_URL}/books/${book.isbn}`);
