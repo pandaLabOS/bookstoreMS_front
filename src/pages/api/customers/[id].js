@@ -6,32 +6,51 @@ export default async function handler(req, res) {
     console.log("req.method", req.method)
     console.log("req.params.id", req.query) //Because this is being run server-side, the console.log results in an output in the terminal (which is on the server) rather than the Dev Console on browsers (because those are client-side)
 
-    const id = req.query.id
+    const phoneNumber = req.query.id
 
     //Get only one document
     if (req.method === 'GET') {
-        const doc = await Customer.findOne({ _id : id})
-        res.status(200).json(doc)
+        try{
+            const doc = await Customer.findOne({ id : phoneNumber})
+            res.status(200).json(doc)
+        } catch (err) {
+            console.log(`err: ${err}`);
+        }
     } 
     
-    else if (req.method === 'DELETE') {
-        const deletedDoc = await Customer.deleteOne({ _id: id })
-        res.status(200).json(deletedDoc)
-    } 
+    else if (req.method === 'PUT') {
+        try{
+            const updatedDoc = await Customer.updateOne({ id: phoneNumber }, req.body)
+            console.log(`updatedDoc: ${JSON.stringify(updatedDoc)}`)
+            res.status(200).json(updatedDoc)
+        } catch (err) {
+            console.log(`err: ${err}`);
+        }
+    }
 
     else if (req.method === 'POST') {
-        const newDoc = await Customer.create(req.body)
-        res.status(200).json(newDoc)
+        try{
+            req.body.id = phoneNumber;
+            const newDoc = await Customer.create(req.body)
+            console.log(`newDoc: ${newDoc}`)
+            res.status(200).json(newDoc)
+        } catch (err) {
+            console.log(`err: ${err}`);
+        }
     }
 
-    else if (req.method === 'PUT') {
-        const updatedDoc = await Customer.updateOne({ _id: id }, req.body)
-        res.status(200).json(updatedDoc)
-    }
-    
-    
+    else if (req.method === 'DELETE') {
+        try{
+            const deletedDoc = await Customer.deleteOne({ id: phoneNumber})
+            console.log(`deletedDoc: ${JSON.stringify(deletedDoc)}`)
+            res.status(200).json(deletedDoc)
+        } catch (err) {
+            console.log(`err: ${err}`);
+        }
+    } 
+   
     else {
-        res.setHeader('Allow', ['GET', 'DELETE'])
+        res.setHeader('Allow', ['GET', 'DELETE','PUT','POST'])
         res.status(405).end(`Method ${req.method} Not Allowed`)
     }
 }
