@@ -19,15 +19,24 @@ export default async function handler(req, res) {
     
     else if (req.method === 'DELETE') {
         const deletedDoc = await Author.deleteOne({ authorID : id })
+        console.log(`deletedDoc: ${JSON.stringify(deletedDoc)}`)
         res.status(200).json(deletedDoc);
     } 
-
+    
     else if (req.method === 'POST') {
-        const newDoc = await Author.create(req.body)
-        res.status(200).json(newDoc)
-    }
+        console.log(`req.body.authorID: ${typeof req.body.authorID}`)
+        
+        req.body._id = req.body.authorID;
+        console.log(`req.body: ${JSON.stringify(req.body)}`)
+
+        const doc = await Author.create(req.body)
+        console.log(`req.body: ${JSON.stringify(doc)}`)
+
+        res.status(201).json(doc)
+    } 
 
     else if (req.method === 'PUT') {
+        req.body._id = req.body.authorID;
         const updatedDoc = await Author.updateOne({ authorID : id }, req.body)
         res.status(200).json(updatedDoc)
     }
