@@ -3,7 +3,7 @@ const connectionString = "mongodb+srv://user1:bookstoreUser1@bookstorems.qgl1qca
 
 export default async function handler(req, res) {
     await connect(connectionString);
-    console.log("req.method", req.method)
+    // console.log("req.method", req.method)
 
     if (req.method === 'GET') {
         const docs = await Author.find()
@@ -21,10 +21,10 @@ export default async function handler(req, res) {
     }
 }
 const authorSchema = new Schema({
-    _id: String,
     firstName: String,
     lastName: String,
-    publisher: String
+    publisher: String,
+    authorID: String
 })
 
 const Author = models?.author || model('author', authorSchema);
