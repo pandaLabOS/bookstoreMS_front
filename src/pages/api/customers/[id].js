@@ -10,12 +10,12 @@ export default async function handler(req, res) {
 
     //Get only one document
     if (req.method === 'GET') {
-        const doc = await Customer.findOne({ id : id})
+        const doc = await Customer.findOne({ _id : id})
         res.status(200).json(doc)
     } 
     
     else if (req.method === 'DELETE') {
-        const deletedDoc = await Customer.deleteOne({ id: id })
+        const deletedDoc = await Customer.deleteOne({ _id: id })
         res.status(200).json(deletedDoc)
     } 
 
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     }
 
     else if (req.method === 'PUT') {
-        const updatedDoc = await Customer.updateOne({ id: id }, req.body)
+        const updatedDoc = await Customer.updateOne({ _id: id }, req.body)
         res.status(200).json(updatedDoc)
     }
     
