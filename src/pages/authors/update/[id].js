@@ -12,8 +12,7 @@ export default function UpdateBook({ returnProps }) {
     console.log(`API_URL: ${API_URL}`)
 
     const saveAuthor = async (data) => {
-        console.log(`${API_URL}/authors/${author}`);
-        const response = await fetch(`/api/authors/${author.authorID}`, {
+        const response = await fetch(`/api/authors/${author._id}`, {
             method: "PUT",
             mode: "cors",
             cache: "no-cache",
@@ -25,6 +24,7 @@ export default function UpdateBook({ returnProps }) {
             body: JSON.stringify(data),
           });
         const result = await response.json();
+        console.log(`Update results: ${result}`);
         setData(JSON.stringify(data)) // an arrow function that receives a single parameter, data, and sets the state of data to the stringified version of the data parameter
         
     }
@@ -41,6 +41,7 @@ export default function UpdateBook({ returnProps }) {
                     <div>
                         <label htmlFor = "firstName">First Name</label><br/>
                         <input class = "form-control text-input" id = "firstName" name = "firstName" {...register('firstName', {required: 'This field is required'})} placeholder = "First Name" defaultValue = {author.firstName} required/>
+                        
                         <label htmlFor = "lastName">Last Name</label><br/>
                         <input class = "form-control text-input" id = "lastName" name = "lastName" {...register('lastName', {required: 'This field is required'})} placeholder = "Last Name" defaultValue = {author.lastName} required/>
                     </div>
@@ -50,8 +51,8 @@ export default function UpdateBook({ returnProps }) {
                         <label htmlFor="publisher">Publisher</label><br />
                         <input id="publisher" {...register("publisher")} placeholder="Name of Publisher" class="form-control" defaultValue = {author.publisher}/>
 
-                        <label htmlFor="authorID">Author ID</label><br />
-                        <input type = "text" id="authorID" {...register("authorID")} placeholder="Author ID" class="form-control" defaultValue = {author.authorID}/>
+                        {/* <label htmlFor="authorID">Author ID</label><br />
+                        <input type = "text" id="authorID" {...register("authorID")} placeholder="Author ID" class="form-control" defaultValue = {author.authorID}/> */}
 
                         <br/>
                         <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
@@ -72,9 +73,9 @@ export default function UpdateBook({ returnProps }) {
 }
 
 export async function getServerSideProps({ params }) {
-    console.log(`params: ${JSON.stringify(params.authorID)}`)
-    const res = await fetch(`${process.env.API_URL}/authors/${params.authorID}`)
+    console.log(`params: ${JSON.stringify(params.id)}`)
+    const res = await fetch(`${process.env.API_URL}/authors/${params.id}`)
     const author = await res.json()
-    const returnProps = [author, process.env.API_URL]
+    const returnProps = [author[0], process.env.API_URL]
     return { props: { returnProps } }
 }

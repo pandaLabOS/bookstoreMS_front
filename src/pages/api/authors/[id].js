@@ -6,39 +6,35 @@ export default async function handler(req, res) {
     console.log("/api/authors req.method", req.method)
     console.log("/api/authors req.params.id", req.query)
 
-    const id = (req.query.authorID);
+    const id = (req.query.id);
     console.log(`id: ${id}`);
 
     //Get only one document
     if (req.method === 'GET') {
-        // const docs = await Author.find()
-        // const doc = docs.filter((doc) => doc.id == id);
-        const doc = await Author.findOne({ authorID : id })
+        const docs = await Author.find()
+        const doc = docs.filter((doc) => doc.id == id);
+        // const doc = await Author.findOne({ _id : id })
         console.log(`doc: ${JSON.stringify(doc)}`)
         res.status(200).json(doc)
     } 
     
     else if (req.method === 'DELETE') {
-        const deletedDoc = await Author.deleteOne({ authorID : id })
+        const deletedDoc = await Author.deleteOne({ _id : id })
         console.log(`deletedDoc: ${JSON.stringify(deletedDoc)}`)
         res.status(200).json(deletedDoc);
     } 
     
-    else if (req.method === 'POST') {
-        console.log(`req.body.authorID: ${typeof req.body.authorID}`)
-        
-        req.body._id = req.body.authorID;
-        console.log(`req.body: ${JSON.stringify(req.body)}`)
-
+    else if (req.method === 'POST') {        
+        req.body._id = ((Math.random() * 100000000000000).toString().substring(0, 12));
         const doc = await Author.create(req.body)
-        console.log(`req.body: ${JSON.stringify(doc)}`)
-
+        console.log(`new doc: ${JSON.stringify(doc)}`)
         res.status(201).json(doc)
     } 
 
     else if (req.method === 'PUT') {
-        const updatedDoc = await Author.updateOne({ authorID : id }, req.body)
-        res.status(200).json(updatedDoc)
+        const updatedDoc = await Author.updateOne({ _id : id }, req.body);
+        console.log(`updatedDoc: ${JSON.stringify(updatedDoc)}`);
+        res.status(200).json(updatedDoc);
     }
     
     

@@ -40,16 +40,16 @@ export default function AuthorsPage({ returnProps }) {
           </thead>
           <tbody>
             {authors.map((author) => (
-              <tr key={author.authorID}>
-                <td>{author.authorID}</td>
+              <tr key={author._id}>
+                <td>{author._id}</td>
                 <td>{author.firstName} {author.lastName}</td>
                 <td>{author.publisher}</td>
                 <td>
-                  <Link href = {`/authors/update/${author.authorID}`}>
+                  <Link href = {`/authors/update/${author._id}`}>
                     <button type = "button" className = "btn btn-primary">Update</button>
                   </Link>
                 </td>
-                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteAuthor(author.authorID)}>Delete</button></td>
+                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteAuthor(author._id)}>Delete</button></td>
               </tr>
             ))}
           </tbody>
