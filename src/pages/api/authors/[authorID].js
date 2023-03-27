@@ -7,13 +7,14 @@ export default async function handler(req, res) {
     console.log("/api/authors req.params.id", req.query)
 
     const id = (req.query.authorID);
+    console.log(`id: ${id}`);
 
     //Get only one document
     if (req.method === 'GET') {
-        const docs = await Author.find()
-        console.log(`id: ${id}`)
-        console.log(`Author object: ${docs[0]}`)
-        const doc = docs.filter((doc) => doc.id == id);
+        // const docs = await Author.find()
+        // const doc = docs.filter((doc) => doc.id == id);
+        const doc = await Author.findOne({ authorID : id })
+        console.log(`doc: ${JSON.stringify(doc)}`)
         res.status(200).json(doc)
     } 
     
@@ -36,7 +37,6 @@ export default async function handler(req, res) {
     } 
 
     else if (req.method === 'PUT') {
-        // req.body._id = req.body.authorID;
         const updatedDoc = await Author.updateOne({ authorID : id }, req.body)
         res.status(200).json(updatedDoc)
     }
