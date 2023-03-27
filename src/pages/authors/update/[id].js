@@ -4,8 +4,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 export default function UpdateBook({ returnProps }) {
-    // console.log(`returnProps: ${returnProps}`)
+    console.log(`returnProps: ${JSON.stringify(returnProps)}`)
     const author = returnProps[0]
+    console.log(`author: ${JSON.stringify(author)}`)
     const API_URL = returnProps[1]
     const {register, handleSubmit, watch, formState: { errors } } = useForm(); //handleSubmit is a tool provided by the react-hook-form hook
     const [data, setData] = useState("");
@@ -76,6 +77,6 @@ export async function getServerSideProps({ params }) {
     console.log(`params: ${JSON.stringify(params.id)}`)
     const res = await fetch(`${process.env.API_URL}/authors/${params.id}`)
     const author = await res.json()
-    const returnProps = [author[0], process.env.API_URL]
+    const returnProps = [author, process.env.API_URL]
     return { props: { returnProps } }
 }

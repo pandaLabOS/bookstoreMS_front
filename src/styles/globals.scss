@@ -56,6 +56,27 @@ a {
   }
 }
 
+.container {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.col-three {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 !important;
+  background-color: #E85A4F;
+  width: 33% !important;
+}
+
+.table-container {
+  width: 95vw !important;
+  height: 35vh !important;
+  overflow: scroll;
+  border: 3px solid var(--white);
+  border-radius: 10px;
+}
+
 Link p {
   margin-top: 5%;
   display: flex;
@@ -123,6 +144,7 @@ Button.btn-form-back {
 Table {
   width: 95vw !important;
   margin: auto;
+  white-space: normal;
 }
 
 p + a {
