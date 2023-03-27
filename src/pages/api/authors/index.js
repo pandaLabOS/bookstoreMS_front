@@ -3,7 +3,6 @@ const connectionString = "mongodb+srv://user1:bookstoreUser1@bookstorems.qgl1qca
 
 export default async function handler(req, res) {
     await connect(connectionString);
-    // console.log("req.method", req.method)
 
     if (req.method === 'GET') {
         const docs = await Author.find().sort({ firstName: 1, lastName : 1 })
@@ -11,9 +10,9 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
-        console.log(`req.body: ${JSON.stringify(req.body.authorID)}`)
+        console.log(`req.body: ${JSON.stringify(req.body._id)}`)
         const doc = await Author.create({
-            _id: req.body.authorID,
+            _id: ((Math.random() * 100000000000000).toString().substring(0, 12)),
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             publisher: req.body.publisher,

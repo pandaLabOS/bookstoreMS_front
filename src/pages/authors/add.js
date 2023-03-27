@@ -31,7 +31,7 @@ export default function AddBook() {
                 <title>Add New Author</title>
             </Head>
             <form onSubmit = {handleSubmit(saveBook)}>
-                <h1>Add New Book</h1>
+                <h1>Add New Author</h1>
                 <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
                     <div>
                         <label htmlFor = "firstName">First Name</label><br/>
@@ -46,8 +46,8 @@ export default function AddBook() {
                         <label htmlFor="publisher">Publisher</label><br />
                         <input id="publisher" {...register("publisher")} placeholder="Name of Publisher" class="form-control"/>
 
-                        <label htmlFor="authorID">Author ID</label><br />
-                        <input type = "text" id="authorID" {...register("authorID")} placeholder="Author ID" class="form-control"/>
+                        {/* <label htmlFor="authorID">Author ID</label><br />
+                        <input type = "text" id="authorID" {...register("authorID")} placeholder="Author ID" class="form-control"/> */}
 
                         <br/>
                         <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
