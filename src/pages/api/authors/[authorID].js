@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     } 
 
     else if (req.method === 'PUT') {
-        req.body._id = req.body.authorID;
+        // req.body._id = req.body.authorID;
         const updatedDoc = await Author.updateOne({ authorID : id }, req.body)
         res.status(200).json(updatedDoc)
     }
