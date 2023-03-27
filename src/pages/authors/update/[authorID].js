@@ -34,8 +34,8 @@ export default function UpdateBook({ returnProps }) {
             <Head>
                 <title>Update Author Details</title>
             </Head>
-            <p>{JSON.stringify(author[0].firstName)}</p>
-            <form onSubmit = {handleSubmit(saveAuthor)}>
+            <p>{JSON.stringify(author)}</p>
+            {/* <form onSubmit = {handleSubmit(saveAuthor)}>
                 <h1>Update Author</h1>
                 <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
                     <div>
@@ -65,7 +65,7 @@ export default function UpdateBook({ returnProps }) {
 
                 <br/>
                 
-            </form>
+            </form> */}
             
         </div>
     )

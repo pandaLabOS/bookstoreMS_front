@@ -6,26 +6,27 @@ export default async function handler(req, res) {
     console.log("req.method", req.method)
     console.log("req.params.id", req.query) //Because this is being run server-side, the console.log results in an output in the terminal (which is on the server) rather than the Dev Console on browsers (because those are client-side)
 
-    const id = req.query.id
+    const id = req.query.phoneNumber
 
     //Get only one document
     if (req.method === 'GET') {
-        const doc = await Customer.findOne({ id : id})
+        const doc = await Customer.findOne({ phoneNumber : id })
         res.status(200).json(doc)
     } 
     
     else if (req.method === 'DELETE') {
-        const deletedDoc = await Customer.deleteOne({ id: id })
+        const deletedDoc = await Customer.deleteOne({ phoneNumber : id })
         res.status(200).json(deletedDoc)
     } 
 
     else if (req.method === 'POST') {
+        req.body._id = ((Math.random() * 100000000000000).toString().substring(0, 24));
         const newDoc = await Customer.create(req.body)
         res.status(200).json(newDoc)
     }
 
     else if (req.method === 'PUT') {
-        const updatedDoc = await Customer.updateOne({ id: id }, req.body)
+        const updatedDoc = await Customer.updateOne({ phoneNumber : id }, req.body)
         res.status(200).json(updatedDoc)
     }
     
@@ -36,7 +37,6 @@ export default async function handler(req, res) {
     }
 }
     const customerSchema = new Schema({
-        _id: String,
         firstName: String,
         lastName: String,
         phoneNumber: String

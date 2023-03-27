@@ -45,7 +45,7 @@ export default function AuthorsPage({ returnProps }) {
                 <td>{author.firstName} {author.lastName}</td>
                 <td>{author.publisher}</td>
                 <td>
-                  <Link href = {`/authors/update/${author._id}`}>
+                  <Link href = {`/authors/update/${author.authorID}`}>
                     <button type = "button" className = "btn btn-primary">Update</button>
                   </Link>
                 </td>

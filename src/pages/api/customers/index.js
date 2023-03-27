@@ -11,8 +11,9 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
+        req.body._id = ((Math.random() * 1000000000000000000000000).toString().substring(0, 24));
         const doc = await Customer.create(req.body)
-        res.status(201).json(doc)
+        res.status(201).json(doc)    
     } 
     
     else {
@@ -22,7 +23,6 @@ export default async function handler(req, res) {
 }
 
 const customerSchema = new Schema({
-    _id: String,
     firstName: String,
     lastName: String,
     phoneNumber: String
