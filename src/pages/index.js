@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
+import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
-import Image from 'next/Image';
 import styles from '@/styles/style.module.css';
 
 export default function Home({ returnProps }) {
