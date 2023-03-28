@@ -26,7 +26,6 @@ export default function UpdateBook({ returnProps }) {
           });
         const result = await response.json();
         setData(JSON.stringify(data)) // an arrow function that receives a single parameter, data, and sets the state of data to the stringified version of the data parameter
-        
     }
 
     return (

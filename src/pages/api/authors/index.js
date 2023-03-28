@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
-        console.log(`req.body: ${JSON.stringify(req.body._id)}`)
+        // console.log(`req.body: ${JSON.stringify(req.body._id)}`)
         const doc = await Author.create({
             _id: ((Math.random() * 100000000000000).toString().substring(0, 12)),
             firstName: req.body.firstName,

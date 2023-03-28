@@ -1,29 +1,33 @@
 import * as React from 'react';
-import Link from 'next/link';
+import Link from 'next/Link';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import Image from 'next/Image';
 
 export default function Home({ returnProps }) {
     const authors = returnProps[0];
     const books = returnProps[1];
     const customers = returnProps[2];
-    console.log(`returnProps: ${JSON.stringify(returnProps)}`)
+    // console.log(`returnProps: ${JSON.stringify(returnProps)}`)
     return (
         <>
             <Container>
                 <Row><h1>Bookstore Management</h1></Row>
+                <br/>
                 <Row><h2>Books</h2></Row>
 
                 <Row>
                     <div className = "table-container">
-                        <Table striped bordered hover className = "one-third-width">
+                        <Table striped bordered hover style = {{ width: "inherit" }}>
                             <thead>
                                 <tr key="head">
-                                    <th>ISBN</th>
-                                    <th>Book Title</th>
-                                    <th>Author</th>
+                                    <th style = {{width: "10px"}}>ISBN</th>
+                                    <th style = {{width: "35px"}}>Book Title</th>
+                                    <th style = {{width: "15px"}}>Author</th>
+                                    <th style = {{width: "3px"}}></th>
+                                    <th style = {{width: "3px"}}></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,75 +36,102 @@ export default function Home({ returnProps }) {
                                     <td>{book.isbn}</td>
                                     <td>{book.title}</td>
                                     <td>{book.author}</td>
+                                    <td>
+                                        <Link href = {`/books/update/${book.isbn}`}>
+                                            <Image
+                                                src = "/icons/edit.svg"
+                                                alt = 'edit'
+                                                width = {20}
+                                                height = {20}
+                                            />
+                                        </Link>
+                                    </td>
+                                    
                                 </tr>
                                 ))}
                             </tbody>
                         </Table>
                     </div>
                 </Row>
+
                 <br/>
-                <Row><h2>Authors</h2></Row>
-                <Row>
-                <div className = "table-container">
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr key="head">
-                            <th>Author Name</th>
-                            <th>Publisher</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {authors.map((author) => (
-                            <tr key={author.authorID}>
-                                <td>{author.firstName} {author.lastName}</td>
-                                <td>{author.publisher}</td>
-                                <td>
-                                <Link href = {`/authors/update/${author.authorID}`}>
-                                    <button type = "button" className = "btn btn-primary">Update</button>
-                                </Link>
-                                </td>
-                                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteAuthor(author.authorID)}>Delete</button></td>
-                            </tr>
-                            ))}
-                        </tbody>
+
+                <Row><h1>Authors</h1></Row>
+                <Row style = {{ display: "flex", flexDirection: "row" }}>
+                    <div className = "table-container">
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr key="head">
+                                <th>Author Name</th>
+                                <th>Publisher</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {authors.map((author) => (
+                                <tr key={author.authorID}>
+                                    <td>{author.firstName} {author.lastName}</td>
+                                    <td>{author.publisher}</td>
+                                    <td>
+                                    <Link href = {`/authors/update/${author.authorID}`}>
+                                        <Image
+                                            src = "/icons/edit.svg"
+                                            alt = 'edit'
+                                            width = {20}
+                                            height = {20}
+                                        />                                        </Link>
+                                    </td>                                       
+                                </tr>
+                                ))}
+                            </tbody>
                         </Table>
                     </div>
                 </Row>
+
                 <br/>
+
                 <Row><h2>Customers</h2></Row>
                 <Row>
-                <div className = "table-container">
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr key="head">
-                            <th>Customer Name</th>
-                            <th>Phone Number</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {customers.map((customer) => (
-                            <tr key={customer.authorID}>
-                                <td>{customer.firstName} {customer.lastName}</td>
-                                <td>{customer.phoneNumber}</td>
-                                <td>
-                                <Link href = {`/customers/update/${customer.phoneNumber}`}>
-                                    <button type = "button" className = "btn btn-primary">Update</button>
-                                </Link>
-                                </td>
-                                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteAuthor(author.authorID)}>Delete</button></td>
-                            </tr>
-                            ))}
-                        </tbody>
+                    <div className = "table-container">
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr key="head">
+                                <th>Customer Name</th>
+                                <th>Phone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {customers.map((customer) => (
+                                <tr key={customer.authorID}>
+                                    <td>{customer.firstName} {customer.lastName}</td>
+                                    <td>{customer.phoneNumber}</td>
+                                    <td>
+                                    <Link href = {`/customers/update/${customer.phoneNumber}`}>
+                                        <Image
+                                            src = "/icons/edit.svg"
+                                            alt = 'edit'
+                                            width = {20}
+                                            height = {20}
+                                        />
+                                    </Link>
+                                    </td>
+                                </tr>
+                                ))}
+                            </tbody>
                         </Table>
                     </div>
+               
                 </Row>
+
+                <br/>
+
+                
             </Container>
         </>
     );
 }
 
 export async function getServerSideProps() {
-    console.log(`API_URL: ${process.env.API_URL}`)
+    // console.log(`API_URL: ${process.env.API_URL}`)
     const authorRes = await fetch(`${process.env.API_URL}/authors`)
     const authors = await authorRes.json()
 

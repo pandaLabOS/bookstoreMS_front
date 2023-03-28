@@ -59,7 +59,7 @@ export default function AuthorsPage({ returnProps }) {
 }
 
 export async function getServerSideProps() {
-    console.log(`API_URL: ${process.env.API_URL}`)
+    // console.log(`API_URL: ${process.env.API_URL}`)
     const res = await fetch(`${process.env.API_URL}/authors`)
     const authors = await res.json()
     const returnProps = [ authors, process.env.API_URL ]

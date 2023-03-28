@@ -75,6 +75,7 @@ a {
   overflow: scroll;
   border: 3px solid var(--white);
   border-radius: 10px;
+  margin: auto;
 }
 
 Link p {
@@ -145,6 +146,14 @@ Table {
   width: 95vw !important;
   margin: auto;
   white-space: normal;
+  
+}
+
+Container {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 p + a {
