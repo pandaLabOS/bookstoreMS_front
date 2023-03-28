@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Table from 'react-bootstrap/Table';
 import '@/styles/Home.module.css';
+import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -31,11 +32,13 @@ export default function CustomersPage({ returnProps }) {
           </Link>
         </div>
         
-        <Table striped bordered hover>
+        <Table hover className = {styles.Table}>
           <thead>
             <tr key="head">
               <th>Name</th>
               <th>Phone Number</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -45,10 +48,23 @@ export default function CustomersPage({ returnProps }) {
                 <td>{customer.phoneNumber}</td>
                 <td>
                   <Link href = {`/customers/update/${customer.phoneNumber}`}>
-                    <button type = "button" className = "btn btn-primary">Update</button>
+                    <Image
+                      src = "/icons/edit.svg"
+                      alt = 'edit'
+                      width = {20}
+                      height = {20}
+                    />
                   </Link>
                 </td>
-                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteCustomer(customer.phoneNumber)}>Delete</button></td>
+                {/* <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteCustomer(customer.phoneNumber)}>Delete</button></td> */}
+                <td onClick = {() => deleteCustomer(customer.phoneNumber)}>
+                  <Image
+                      src = "/icons/delete.svg"
+                      alt = 'edit'
+                      width = {20}
+                      height = {20}
+                    />               
+                </td>
               </tr>
             ))}
           </tbody>

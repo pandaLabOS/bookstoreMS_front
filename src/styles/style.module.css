@@ -1,0 +1,73 @@
+/* Shared.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #343a40;
+}
+
+.h1 {
+    margin-bottom: 1.5rem;
+    color: #f8f9fa;
+}
+
+.btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn_danger {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Dark theme table styles */
+.Table {
+    color: #f8f9fa;
+}
+
+.Table thead {
+    background-color: #495057;
+}
+
+.Table thead th {
+    color: #f8f9fa;
+}
+
+.Table tbody tr {
+    background-color: #212529;
+    color: #f8f9fa !important;
+    margin-bottom: 2rem;
+}
+
+.Table tbody tr:hover {
+    background-color: #f8f9fa;
+}

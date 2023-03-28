@@ -10,12 +10,14 @@
   --peach: #E98074;
   --vermillion: #E85A4F;
   --green: #56b183;
+  --dark-grey: #212529;
+  --light-grey: #495057;
 
-  --primary: var(--beige);
-  --secondary: var(--sand);
-  --accent: var(--vermillion);
+  --primary: var(--dark-grey);
+  --secondary: var(--light-grey);
+  --accent: var(--white);
 
-  --navbar-background: var(--white);
+  --navbar-background: var(--secondary);
   --navbar-text: var(--accent);
 
   --subtitle-text: var(--grey);
@@ -142,6 +144,11 @@ Button.btn-form-back {
   color: var(--white);
 }
 
+Button.btn-form-back:hover {
+  background-color: var(--white);
+  color: var(--green);
+}
+
 Table {
   width: 95vw !important;
   margin: auto;
@@ -216,4 +223,9 @@ label {
   border-radius: 10px;
   border: var(--green) 1px solid;
   color: var(--white);
+}
+
+.submit:hover{
+  background-color: var(--white);
+  color: var(--green);
 }

@@ -12,7 +12,6 @@ export default function UpdateBook({ returnProps }) {
     console.log(`API_URL: ${API_URL}`)
 
     const saveBook = async (data) => {
-        console.log(`${API_URL}/books/${book.isbn}`);
         const response = await fetch(`/api/books/${book.isbn}`, {
             method: "PUT",
             mode: "cors",
@@ -29,13 +28,14 @@ export default function UpdateBook({ returnProps }) {
     }
 
     return (
-        <div>
+        <main style = {{ display: "flex", flexDirection: "column", justifyContent: "center", margin: "auto" }}>
             <Head>
                 <title>Update Book Details</title>
             </Head>
-            <form onSubmit = {handleSubmit(saveBook)}>
-                <h1>Update Book Details</h1>
-                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
+                
+            <h1 style = {{ margin: "auto" }}>Update Book Details</h1>
+            <form onSubmit = {handleSubmit(saveBook)} style = {{ margin: "auto" }}>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
                     <div class="form-group">
                         <label htmlFor = "title">Book Title</label><br/>
                         <input class = "form-control text-input" id = "title" name = "title" {...register('title', {required: 'This field is required'})} placeholder = "Book Title" required defaultValue = {book.title}/>
@@ -46,9 +46,6 @@ export default function UpdateBook({ returnProps }) {
                         <label htmlFor="year">Year of Publication</label><br />
                         <input id="year" {...register("year")} placeholder="Year of Publication" class="form-control" defaultValue = {book.year}/>
                         <div id="phoneHelp" class="form-text">e.g. 2015</div>
-                    </div>
-
-                    <div class = "form-group">
                         
                         <label htmlFor="author">Author</label><br />
                         <input id="author" {...register("author")} placeholder="Name of Author" class="form-control" defaultValue = {book.author}/>
@@ -69,9 +66,7 @@ export default function UpdateBook({ returnProps }) {
                 <br/>
                 
             </form>
-            
-            
-        </div>
+        </main>
     )
 }
 

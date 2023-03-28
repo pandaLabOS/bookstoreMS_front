@@ -30,14 +30,13 @@ export default function UpdateCustomer({ returnProps }) {
     }
 
     return (
-        <div>
+        <main style = {{ display: "flex", flexDirection: "column", justifyContent: "center", margin: "auto" }}>
             <Head>
                 <title>Update Customer Details</title>
             </Head>
-            {/* {JSON.stringify(customer)} */}
-            <form onSubmit = {handleSubmit(saveCustomer)}>
-                <h1>Update Customer Details</h1>
-                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
+            <h1 style = {{ margin: "auto" }}>Update Customer Details</h1>
+            <form onSubmit = {handleSubmit(saveCustomer)} style = {{ margin: "auto" }}>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
                     <div class="form-group">
                         <label htmlFor = "firstName">First Name</label><br/>
                         <input 
@@ -70,7 +69,7 @@ export default function UpdateCustomer({ returnProps }) {
                         
                         <br/>
 
-                        <div>
+                        <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
                             <input type="submit" className = "submit" value = "Save"/>
                             <Link href = "/customers" style = {{textDecoration: "none", color: "var(--blue)"}}>
                                 <button className = "btn btn-form-back">Back</button>
@@ -82,7 +81,7 @@ export default function UpdateCustomer({ returnProps }) {
             </form>
             
             
-        </div>
+        </main>
     )
 }
 

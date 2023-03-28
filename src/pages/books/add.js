@@ -33,7 +33,7 @@ export default function AddBook() {
             </Head>
             <form onSubmit = {handleSubmit(saveBook)}>
                 <h1>Add New Book</h1>
-                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
                     <div class="form-group">
                         <label htmlFor = "title">Book Title</label><br/>
                         <input class = "form-control text-input" id = "title" name = "title" {...register('title', {required: 'This field is required'})} placeholder = "Book Title" required/>
@@ -45,9 +45,6 @@ export default function AddBook() {
                         <label htmlFor="year">Year of Publication</label><br />
                         <input id="year" {...register("year")} placeholder="Year of Publication" class="form-control"/>
                         <div id="phoneHelp" class="form-text">e.g. 2015</div>
-                    </div>
-
-                    <div class = "form-group">
                         
                         <label htmlFor="author">Author</label><br />
                         <input id="author" {...register("author")} placeholder="Name of Author" class="form-control"/>

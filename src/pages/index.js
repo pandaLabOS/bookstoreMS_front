@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Image from 'next/Image';
+import styles from '@/styles/style.module.css';
 
 export default function Home({ returnProps }) {
     const authors = returnProps[0];
@@ -20,13 +21,12 @@ export default function Home({ returnProps }) {
 
                 <Row>
                     <div className = "table-container">
-                        <Table striped bordered hover style = {{ width: "inherit" }}>
+                    <Table hover className = {styles.Table}>
                             <thead>
                                 <tr key="head">
                                     <th style = {{width: "10px"}}>ISBN</th>
                                     <th style = {{width: "35px"}}>Book Title</th>
                                     <th style = {{width: "15px"}}>Author</th>
-                                    <th style = {{width: "3px"}}></th>
                                     <th style = {{width: "3px"}}></th>
                                 </tr>
                             </thead>
@@ -59,11 +59,12 @@ export default function Home({ returnProps }) {
                 <Row><h1>Authors</h1></Row>
                 <Row style = {{ display: "flex", flexDirection: "row" }}>
                     <div className = "table-container">
-                        <Table striped bordered hover>
+                        <Table hover className = {styles.Table}>
                             <thead>
                                 <tr key="head">
                                 <th>Author Name</th>
                                 <th>Publisher</th>
+                                <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,11 +93,12 @@ export default function Home({ returnProps }) {
                 <Row><h2>Customers</h2></Row>
                 <Row>
                     <div className = "table-container">
-                        <Table striped bordered hover>
+                        <Table hover className = {styles.Table}>
                             <thead>
                                 <tr key="head">
                                 <th>Customer Name</th>
                                 <th>Phone Number</th>
+                                <th></th>
                                 </tr>
                             </thead>
                             <tbody>
