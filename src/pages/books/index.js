@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Table from 'react-bootstrap/Table';
-import '@/styles/Home.module.css';
+import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,11 +27,12 @@ export default function BooksPage({ returnProps }) {
         <div style = {{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem" }}>
           <h1>Books</h1>
           <Link href = "/books/add">
-            <button type = "button" class = "btn btn-primary">Add new book</button>
+            {/* <button type = "button" class = "btn btn-primary" >Add new book</button> */}
+            <button type = "button" className = {styles.btn} >Add new book</button>
           </Link>
         </div>
         
-        <Table striped bordered hover>
+        <Table hover className = {styles.Table}>
           <thead>
             <tr key="head">
               <th>ISBN</th>
@@ -39,8 +40,8 @@ export default function BooksPage({ returnProps }) {
               <th>Author</th>
               <th>Year</th>
               <th>Price</th>
-              {/* <th></th>
-              <th></th> */}
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -53,19 +54,24 @@ export default function BooksPage({ returnProps }) {
                 <td>{book.price}</td>
                 <td>
                   <Link href = {`/books/update/${book.isbn}`}>
-                    <button type = "button" className = "btn btn-primary">Update</button>
+                    {/* <button type = "button" className = "btn btn-primary">Update</button> */}
+                    <Image
+                      src = "/icons/edit.svg"
+                      alt = 'edit'
+                      width = {20}
+                      height = {20}
+                    />
                   </Link>
                 </td>
-                <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteBook(book.isbn)}>Delete</button></td>
-                {/* <td>
+                {/* <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteBook(book.isbn)}>Delete</button></td> */}
+                <td onClick = {() => deleteBook(book.isbn)}>
                   <Image
                     src = "/icons/delete.svg"
+                    alt = 'edit'
                     width = {20}
                     height = {20}
-                    alt = "delete"
-                    onClick = {() => deleteBook(book.isbn)}
                   />
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>

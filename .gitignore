@@ -32,3 +32,5 @@ yarn-error.log*
 .vercel
 src/styles/globals.scss
 Dockerfile
+src/pages/customers/[id].js
+src/pages/customers/[phoneNumber].js

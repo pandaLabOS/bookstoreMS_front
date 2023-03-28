@@ -32,16 +32,13 @@ export default function AddBook() {
             </Head>
             <form onSubmit = {handleSubmit(saveBook)}>
                 <h1>Add New Author</h1>
-                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", width: "90vw" }}>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
                     <div>
                         <label htmlFor = "firstName">First Name</label><br/>
                         <input class = "form-control text-input" id = "firstName" name = "firstName" {...register('firstName', {required: 'This field is required'})} placeholder = "First Name" required/>
 
                         <label htmlFor = "lastName">Last Name</label><br/>
                         <input class = "form-control text-input" id = "lastName" name = "lastName" {...register('lastName', {required: 'This field is required'})} placeholder = "Last Name" required/>
-                    </div>
-
-                    <div>
                         
                         <label htmlFor="publisher">Publisher</label><br />
                         <input id="publisher" {...register("publisher")} placeholder="Name of Publisher" class="form-control"/>
