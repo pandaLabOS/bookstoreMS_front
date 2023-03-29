@@ -67,6 +67,7 @@ export default function AddSale({ books, sales }) {
                         <div style = {{ width: "20rem"}}>
                             <label>Title</label>
                             <select id = "selectBook" placeholder = "Book Title" class="form-select" aria-label="Default select example" {...register("bookTitle")}>
+                                <option key = {books.length + 1} value = "" selected disabled>Select book title</option>
                                 {books.map((book) => (
                                     <option key = {books.indexOf(book)} value={book.title}>{book.title}</option>
                                 ))}
