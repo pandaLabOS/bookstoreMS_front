@@ -23,53 +23,50 @@ export default function Home({ returnProps }) {
                 <title>Home</title>
             </Head>
             <h1 style = {{ padding: "1rem" }}>Bookstore Management</h1>
-            <div style = {{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem" }}>
-                <h1>Sales</h1>
-                <Link href = "/sales/add">
-                    <button type = "button" className = "btn btn-primary">Add new sale</button>
-                </Link>
-            </div>
-            <div>
-                <Table hover className = {styles.Table}>
-                    <thead>
-                    <tr key="head">
-                        <th style = {{ width: "1rem" }}>ID</th>
-                        <th style = {{ width: "3rem" }}>Book Title</th>
-                        <th style = {{ width: "8rem" }}>Date</th>
-                        <th>Unit Price</th>
-                        <th>Quantity</th>
-                        <th>Sales Amount</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {sales.map((sale) => (
-                        <tr key={sale._id}>
-                            <td>{(sale._id).toString().substring(0,2)}{sales.indexOf(sale)+1}</td>
-                            <td width = "35%">{sale.bookTitle}</td>
-                            <td>{(sale.date).toString().substring(0, 10)}</td>
-                            <td>{sale.price}</td>
-                            <td>{sale.quantity}</td>
-                            <td>{sale.totalSalesAmount}</td>
-                            <td>
-                            <Link href = {`/sales/update/${sale._id}`}>
-                                <Image
-                                src = "/icons/edit.svg"
-                                alt = 'edit'
-                                width = {20}
-                                height = {20}
-                                />
-                            </Link>
-                            </td>
-                            {/* <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteSale(sale.phoneNumber)}>Delete</button></td> */}
-                        </tr>
-                        ))}
-                    </tbody>
-                </Table>
-                
-            </div>
+            
             <Container>
+                <Row><h2>Sales</h2></Row>
+                <Row>
+                    <div>
+                        <Table hover className = {styles.Table}>
+                            <thead>
+                            <tr key="head">
+                                <th style = {{ width: "1rem" }}>ID</th>
+                                <th style = {{ width: "3rem" }}>Book Title</th>
+                                <th style = {{ width: "8rem" }}>Date</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Sales Amount</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {sales.map((sale) => (
+                                <tr key={sale._id}>
+                                    <td>{(sale._id).toString().substring(0,2)}{sales.indexOf(sale)+1}</td>
+                                    <td width = "35%">{sale.bookTitle}</td>
+                                    <td>{(sale.date).toString().substring(0, 10)}</td>
+                                    <td>{sale.price}</td>
+                                    <td>{sale.quantity}</td>
+                                    <td>{sale.totalSalesAmount}</td>
+                                    <td>
+                                    <Link href = {`/sales/update/${sale._id}`}>
+                                        <Image
+                                        src = "/icons/edit.svg"
+                                        alt = 'edit'
+                                        width = {20}
+                                        height = {20}
+                                        />
+                                    </Link>
+                                    </td>
+                                    {/* <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteSale(sale.phoneNumber)}>Delete</button></td> */}
+                                </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
+                </Row>
                 <br/>
                 <Row><h2>Books</h2></Row>
 
