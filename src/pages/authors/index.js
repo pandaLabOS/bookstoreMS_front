@@ -4,7 +4,7 @@ import '@/styles/Home.module.css';
 import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/Head';
+import Head from 'next/head';
 
 export default function AuthorsPage({ returnProps }) {
   const authors = returnProps[0]
