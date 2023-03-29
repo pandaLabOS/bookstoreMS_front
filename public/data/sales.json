@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "64241857e5ae5af871434f4f",
+    "bookTitle": "An Atmosphere of Eternity: Stories of India",
+    "date": "2023-03-24T00:00:00.000Z",
+    "price": 750,
+    "quantity": 4,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "6424185ae5ae5af871434f51",
+    "bookTitle": "An Atmosphere of Eternity: Stories of India",
+    "date": "2023-03-24T00:00:00.000Z",
+    "price": 750,
+    "quantity": 4,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "6424186be5ae5af871434f54",
+    "bookTitle": "An Atmosphere of Eternity: Stories of India",
+    "date": "2023-03-24T00:00:00.000Z",
+    "price": 750,
+    "quantity": 4,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "64241877e5ae5af871434f59",
+    "bookTitle": "Beloved (Plume Contemporary Fiction)",
+    "date": "2023-03-24T00:00:00.000Z",
+    "price": 750,
+    "quantity": 4,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "64241d80e5ae5af871434f66",
+    "bookTitle": "Chocolate Jesus",
+    "date": "2023-03-02T00:00:00.000Z",
+    "price": 1000,
+    "quantity": 3,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "64241d88e5ae5af871434f69",
+    "bookTitle": "Chocolate Jesus",
+    "date": "2023-03-02T00:00:00.000Z",
+    "price": 1000,
+    "quantity": 3,
+    "totalSalesAmount": 3000,
+    "__v": 0
+  },
+  {
+    "_id": "6424237fe5ae5af871434f81",
+    "bookTitle": "An Atmosphere of Eternity: Stories of India",
+    "date": "2023-03-16T00:00:00.000Z",
+    "price": 75,
+    "quantity": 2,
+    "totalSalesAmount": 150,
+    "__v": 0
+  },
+  {
+    "_id": "64242bcd6d2793a0b203d51e",
+    "bookTitle": "Decipher",
+    "date": "2023-02-28T00:00:00.000Z",
+    "price": 75,
+    "quantity": 2,
+    "totalSalesAmount": 150,
+    "__v": 0
+  },
+  {
+    "_id": "64242bfa6d2793a0b203d524",
+    "bookTitle": "El Senor De Los Anillos: LA Comunidad Del Anillo (Lord of the Rings (Spanish))",
+    "date": "2023-01-29T00:00:00.000Z",
+    "price": 75,
+    "quantity": 4,
+    "totalSalesAmount": 300,
+    "__v": 0
+  },
+  {
+    "_id": "64242c466d2793a0b203d527",
+    "bookTitle": "El Senor De Los Anillos: LA Comunidad Del Anillo (Lord of the Rings (Spanish))",
+    "date": "2023-01-16T00:00:00.000Z",
+    "price": 75,
+    "quantity": 4,
+    "totalSalesAmount": 300,
+    "__v": 0
+  }
+]

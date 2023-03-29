@@ -1,5 +1,5 @@
 :root {
-  --max-width: 1100px;
+  --max-width: 95vw;
   --border-radius: 12px;
 
   --black: #222222;
@@ -44,7 +44,7 @@ body {
 
 main {
   padding: 3rem 3rem;
-  width: 80%;
+  width: 80vw;
 }
 
 a {
@@ -72,11 +72,12 @@ a {
 }
 
 .table-container {
-  width: 95vw !important;
+  width: 100vw !important;
+  max-width: 97.5vw !important;
   height: 35vh !important;
   overflow: scroll;
-  border: 3px solid var(--white);
-  border-radius: 10px;
+  // border: 3px solid var(--white);
+  // border-radius: 10px;
   margin: auto;
 }
 
@@ -228,4 +229,8 @@ label {
 .submit:hover{
   background-color: var(--white);
   color: var(--green);
+}
+
+input, select {
+  height: 3rem;
 }
