@@ -9,7 +9,6 @@ import Table from 'react-bootstrap/Table';
 
 import styles from '@/styles/style.module.css';
 
-
 export default function AddSale({ books, sales }) {
     const API_URL = "https://bookstore-ms-front.vercel.app/api";
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -134,19 +133,20 @@ export default function AddSale({ books, sales }) {
                             })
                         }
                     </tbody>
-                    <br/>
                     <tfoot style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
                         <tr>
-                            <td colspan = "4"></td>
-                            <td colspan = "1">Total: {(cart.reduce((a,c) => Number(a) + Number(c.price * c.quantity), 0))}</td>
+                            <td colSpan = "4"></td>
+                            <td colSpan = "1">Total: {(cart.reduce((a,c) => Number(a) + Number(c.price * c.quantity), 0))}</td>
                         </tr>
                     </tfoot>
-                    <br/>
+                </Table>
+                <br/>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyContent: "flex-start"}}>
                     <input type="submit" className = "submit" value = "Save"/>
-                    <Link href = "/customers" style = {{textDecoration: "none", color: "var(--blue)"}}>
+                    <Link href = "/sales" style = {{textDecoration: "none", color: "var(--blue)"}}>
                         <button className = "btn btn-form-back">Back</button>
                     </Link>
-                </Table>
+                </div>
             </form>
             
         </div>

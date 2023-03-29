@@ -10,6 +10,8 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
+        req.body.date = req.body.date.split("T")[0]
+        console.log(`req.body.date: ${req.body.date}`)
         req.body.totalSalesAmount = req.body.price * req.body.quantity
         const doc = await Sale.create(req.body)
         console.log(`doc: ${JSON.stringify(doc)}`)
@@ -25,7 +27,7 @@ export default async function handler(req, res) {
 const saleSchema = new Schema({
     bookTitle: String,
     bookID: String,
-    date: Date,
+    date: String,
     price: Number,
     quantity: Number,
     totalSalesAmount: Number

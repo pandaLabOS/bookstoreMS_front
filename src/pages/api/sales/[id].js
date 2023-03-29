@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
 const saleSchema = new Schema({
     bookTitle: String,
-    date: Date,
+    date: String,
     price: Number,
     quantity: Number,
     totalSalesAmount: Number
