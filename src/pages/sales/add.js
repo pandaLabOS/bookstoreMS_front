@@ -50,6 +50,7 @@ export default function AddSale({ books }) {
 
                             <label htmlFor = "date">Date</label><br/>
                             <input 
+                                type = "date"
                                 className = "form-control" 
                                 id = "date" 
                                 name = "date" {...register('date', {required: 'This field is required'})} 
