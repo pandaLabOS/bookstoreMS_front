@@ -68,7 +68,7 @@ export default function AddSale({ books, sales }) {
                             <label>Title</label>
                             <select id = "selectBook" placeholder = "Book Title" class="form-select" aria-label="Default select example" {...register("bookTitle")}>
                                 {books.map((book) => (
-                                    <option value={book.title}>{book.title}</option>
+                                    <option key = {books.indexOf(book)} value={book.title}>{book.title}</option>
                                 ))}
                             </select>
                         </div>
@@ -115,7 +115,7 @@ export default function AddSale({ books, sales }) {
                         {
                             cart.map((book) => {
                                 return (
-                                    <tr>
+                                    <tr key = {cart.indexOf(book)}>
                                         <td>{book.bookTitle}</td>
                                         <td>{book.price}</td>
                                         <td>{book.quantity}</td>
