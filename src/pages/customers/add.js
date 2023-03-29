@@ -47,7 +47,7 @@ export default function AddCustomer() {
                         
                         <br/>
 
-                        <div>
+                        <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
                             <input type="submit" className = "submit" value = "Save"/>
                             <Link href = "/customers" style = {{textDecoration: "none", color: "var(--blue)"}}>
                                 <button className = "btn btn-form-back">Back</button>

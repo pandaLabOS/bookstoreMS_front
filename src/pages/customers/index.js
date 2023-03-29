@@ -4,6 +4,7 @@ import '@/styles/Home.module.css';
 import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function CustomersPage({ returnProps }) {
   const customers = returnProps[0]
@@ -25,6 +26,9 @@ export default function CustomersPage({ returnProps }) {
 
     return (
       <div>
+        <Head>
+          <title>Customers</title>
+        </Head>
         <div style = {{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem" }}>
           <h1>Customers</h1>
           <Link href = "/customers/add">
