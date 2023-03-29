@@ -63,14 +63,6 @@ export default function Home({ returnProps }) {
                             </Link>
                             </td>
                             {/* <td><button type = "button" className = "btn btn-danger" onClick = {() => deleteSale(sale.phoneNumber)}>Delete</button></td> */}
-                            <td onClick = {() => deleteSale(sale._id)}>
-                            <Image
-                                src = "/icons/delete.svg"
-                                alt = 'edit'
-                                width = {20}
-                                height = {20}
-                                />               
-                            </td>
                         </tr>
                         ))}
                     </tbody>
