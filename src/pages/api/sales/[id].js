@@ -18,6 +18,9 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'PUT') {
+        req.body.date = req.body.date.split("T")[0]
+        // console.log(`req.body.date: ${req.body.date}`)
+        req.body.totalSalesAmount = req.body.price * req.body.quantity
         const updatedDoc = await Sale.updateOne({ _id : id }, req.body );
         console.log(`updatedDoc: ${JSON.stringify(updatedDoc)}`);
         res.status(201).json(updatedDoc);
