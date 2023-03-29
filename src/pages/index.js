@@ -26,7 +26,7 @@ export default function Home({ returnProps }) {
             
             <Container>
                 <Row><h2>Sales</h2></Row>
-                <Row></Row>
+                <Row>
                     <div>
                         <Table hover className = {styles.Table}>
                             <thead>
