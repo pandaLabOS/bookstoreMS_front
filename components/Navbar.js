@@ -25,6 +25,11 @@ const NavBar = () => (
         </div>
 
         <div>
+          <Link href="/sales" style = {{textDecoration: "none"}}>
+            <p className = {styles.a}>Sales</p>
+          </Link>
+        </div>
+        <div>
           <Link href="/customers" style = {{textDecoration: "none"}}>
             <p className = {styles.a}>Customers</p>
           </Link>
