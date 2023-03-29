@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     } 
     
     else if (req.method === 'POST') {
-        req.body._id = ((Math.random() * 1000000000000000000000000).toString().substring(0, 24));
+        req.body._id = ((Math.random() * 1000000000000000000000000).toString().substring(0, 12));
         const doc = await Customer.create(req.body)
         res.status(201).json(doc)    
     } 
