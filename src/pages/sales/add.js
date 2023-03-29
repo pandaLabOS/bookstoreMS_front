@@ -58,7 +58,7 @@ export default function AddSale({ books, sales }) {
     return (
         <div>
             <Head>
-                <title>Sales</title>
+                <title>Add New Sale</title>
             </Head>
             <div id = "po">
                 <form onSubmit = {handleSubmit(addToCart)}>

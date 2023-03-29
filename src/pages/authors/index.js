@@ -4,6 +4,7 @@ import '@/styles/Home.module.css';
 import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/Head';
 
 export default function AuthorsPage({ returnProps }) {
   const authors = returnProps[0]
@@ -23,7 +24,10 @@ export default function AuthorsPage({ returnProps }) {
   }
 
     return (
-      <main>
+      <div>
+        <Head>
+          <title>Authors</title>
+        </Head>
         <div style = {{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem" }}>
           <h1>Authors</h1>
           <Link href = "/authors/add">
@@ -69,7 +73,7 @@ export default function AuthorsPage({ returnProps }) {
             ))}
           </tbody>
         </Table>
-      </main>
+      </div>
     );
 }
 

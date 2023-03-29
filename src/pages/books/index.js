@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import styles from '@/styles/style.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function BooksPage({ returnProps }) {
   const books = returnProps[0]
@@ -24,6 +25,9 @@ export default function BooksPage({ returnProps }) {
 
     return (
       <div>
+        <Head>
+          <title>Books</title>
+        </Head>
         <div style = {{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem" }}>
           <h1>Books</h1>
           <Link href = "/books/add">

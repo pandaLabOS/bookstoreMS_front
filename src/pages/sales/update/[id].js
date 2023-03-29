@@ -34,10 +34,9 @@ export default function AddSale({ books, sale }) {
     return (
         <div>
             <Head>
-                <title>Sales</title>
+                <title>Update Sale</title>
             </Head>
             <div id = "po">
-                <p style = {{ color: "white" }}>{JSON.stringify(sale)}</p>
                 <form onSubmit = {handleSubmit(saveSale)} style = {{ margin: "auto" }}>
                     <h1>Update Sale</h1>
                     <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
