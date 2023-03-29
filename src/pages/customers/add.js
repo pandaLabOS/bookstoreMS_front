@@ -33,7 +33,7 @@ export default function AddCustomer() {
             </Head>
             <form onSubmit = {handleSubmit(saveCustomer)}>
                 <h1>Add New Customer</h1>
-                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem" }}>
+                <div style = {{ display: "flex", flexDirection: "row", gap: "3rem"}}>
                     <div class="form-group">
                         <label htmlFor = "firstName">First Name</label><br/>
                         <input class = "form-control text-input" id = "firstName" name = "name" {...register('firstName', {required: 'This field is required'})} placeholder = "First Name" required/>
@@ -47,7 +47,7 @@ export default function AddCustomer() {
                         
                         <br/>
 
-                        <div style = {{ display: "flex", flexDirection: "row", gap: "3rem", justifyItems: "stretch", alignItems: "center"}}>
+                        <div>
                             <input type="submit" className = "submit" value = "Save"/>
                             <Link href = "/customers" style = {{textDecoration: "none", color: "var(--blue)"}}>
                                 <button className = "btn btn-form-back">Back</button>

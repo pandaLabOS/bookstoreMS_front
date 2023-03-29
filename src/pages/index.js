@@ -14,7 +14,7 @@ export default function Home({ returnProps }) {
     // console.log(`returnProps: ${JSON.stringify(returnProps)}`)
     return (
         <>
-            <Container>
+            {/* <Container>
                 <Row><h1>Bookstore Management</h1></Row>
                 <br/>
                 <Row><h2>Books</h2></Row>
@@ -127,7 +127,8 @@ export default function Home({ returnProps }) {
                 <br/>
 
                 
-            </Container>
+            </Container> */}
+            <p></p>
         </>
     );
 }
@@ -143,7 +144,10 @@ export async function getServerSideProps() {
     const customersRes = await fetch(`${process.env.API_URL}/customers`)
     const customers = await customersRes.json()
 
-    const returnProps = [ authors, books, customers, process.env.API_URL ]
+    const salesRes = await fetch(`${process.env.API_URL}/sales`)
+    const sales = await salesRes.json()
+
+    const returnProps = [ authors, books, customers, sales, process.env.API_URL ]
 
     return { props: { returnProps } }
 }
